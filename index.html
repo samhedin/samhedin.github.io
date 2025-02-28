@@ -5,52 +5,186 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bröllopsinbjudan</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@300;400;600&display=swap');
+        
+        :root {
+            --primary: #294b70;
+            --secondary: #f9f3f0;
+            --accent: #d4b08c;
+            --text: #333333;
+        }
         
         body {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cormorant Garamond', serif;
             text-align: center;
-            background-color: #f8f8f8;
-            color: #333;
-            padding: 20px;
+            background-color: var(--secondary);
+            color: var(--text);
+            padding: 0;
+            margin: 0;
+            line-height: 1.6;
         }
+        
         .container {
-            max-width: 600px;
-            margin: 0 auto;
+            max-width: 800px;
+            margin: 40px auto;
             background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 50px 40px;
+            border-radius: 2px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
         }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--accent);
+        }
+        
         h1 {
-            color: navy;
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+            font-weight: 700;
+            letter-spacing: 1px;
         }
+        
+        .names {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            color: var(--primary);
+            margin: 15px 0 30px;
+            font-style: italic;
+        }
+        
         .date {
-            font-size: 1.2em;
-            font-weight: bold;
+            font-size: 1.6em;
+            font-weight: 600;
+            margin: 30px 0 15px;
+            color: var(--primary);
         }
+        
         .location, .dresscode {
-            margin-top: 10px;
-            font-size: 1.1em;
+            font-size: 1.3em;
+            margin: 15px 0;
         }
+        
+        .message {
+            font-size: 1.2em;
+            margin: 30px 0;
+            line-height: 1.6;
+        }
+        
         .qrcode {
-            margin-top: 20px;
+            margin: 40px 0 30px;
+        }
+        
+        .qrcode img {
+            padding: 10px;
+            background: white;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact {
+            margin: 20px 0;
+        }
+        
+        .contact a {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent);
+            padding-bottom: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact a:hover {
+            color: var(--accent);
+        }
+        
+        .coming-soon {
+            font-family: 'Playfair Display', serif;
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            margin-top: 40px;
+            letter-spacing: 1px;
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 30px 0;
+        }
+        
+        .divider::before, .divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid var(--accent);
+        }
+        
+        .divider::before {
+            margin-right: 20px;
+        }
+        
+        .divider::after {
+            margin-left: 20px;
+        }
+        
+        .divider-icon {
+            font-size: 1.5em;
+            color: var(--accent);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .names {
+                font-size: 1.5em;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Välkommen till ett bröllop</h1>
-        <p class="date">26 april</p>
-        <p class="location">Start Ateljéns Pizzeria 13:00</p>
-        <p class="dresscode">Klädkod: Marinblå</p>
-        <p>Vi ser fram emot att fira denna speciella dag med er!</p>
-	<p>Scanna QR koden för att öppna den här hemsidan</p>
-        <div class="qrcode">
-            <img src="qrcode.png" alt="QR-kod" width="200">
+        <h1>Bröllopsinbjudan</h1>
+        <div class="names">Vi ska gifta oss!</div>
+        
+        <div class="divider">
+            <span class="divider-icon">♥</span>
         </div>
-	<p><a href="mailto:ciccifixar@gmail.com">Mail för frågor/OSA</a></p>
-	<p>MER INFO KOMMER SNART, GÖR DET HÄR TILL ER STARTSIDA.</p>
+        
+        <p class="date">26 april 2025</p>
+        <p class="location">Start: Ateljéns Pizzeria, klockan 13:00</p>
+        <p class="dresscode">Klädkod: Marinblå</p>
+        
+        <div class="divider">
+            <span class="divider-icon">♥</span>
+        </div>
+        
+        <p class="message">Vi ser fram emot att fira denna speciella dag med er!<br>
+        Vi hoppas att ni kan vara med oss när vi säger "Ja" till varandra.</p>
+        
+        <p>Scanna QR-koden för att öppna denna hemsida</p>
+        <div class="qrcode">
+            <img src="qrcode.png" alt="QR-kod" width="150">
+        </div>
+        
+        <p class="contact"><a href="mailto:ciccifixar@gmail.com">Kontakta oss för frågor/OSA</a></p>
+        
+        <div class="coming-soon">MER INFORMATION KOMMER SNART</div>
     </div>
 </body>
 </html>
